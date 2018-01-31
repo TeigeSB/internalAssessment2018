@@ -12,12 +12,13 @@
 <!-- my node serer is at localhost:30303 -->
   <form action="localhost:30303/server.js" method="POST" id="usrForm">
     To:<br>
-    <input type="text" name="receiverNumber"><br>
-    Message:<br>
-    <input type="text" name="message"><br>
+    <input type="text" name="receiverNumber">
+    <input type="submit" name="Submit"><br>
     Repeat number:<br>
     <input type="text" name="repeatTime"><br>
-    <input type="submit" name="Submit">
   </form>
+  <br>
+<textarea rows="4" cols="50" name="comment" form="usrForm">
+Enter message here...</textarea>
 </body>
 </html>
