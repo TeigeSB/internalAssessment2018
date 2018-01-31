@@ -2,11 +2,22 @@
 <html lang="en">
 <head>
   <script type="text/javascript"
-src="//media.twiliocdn.com/sdk/js/client/v1.4/twilio.min.js"></script>
+  src="//media.twiliocdn.com/sdk/js/client/v1.4/twilio.min.js"></script>
+  <script src="main.js"></script>
+
     <meta charset="UTF-8">
     <title>What it Do</title>
 </head>
 <body>
-
+<!-- my node serer is at localhost:30303 -->
+  <form action="localhost:30303/server.js" method="POST" id="usrForm">
+    To:<br>
+    <input type="text" name="receiverNumber"><br>
+    Message:<br>
+    <input type="text" name="message"><br>
+    Repeat number:<br>
+    <input type="text" name="repeatTime"><br>
+    <input type="submit" name="Submit">
+  </form>
 </body>
 </html>
