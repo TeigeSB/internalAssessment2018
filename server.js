@@ -12,7 +12,7 @@ app.set('view engine', 'ejs')
 
 var db
 
-MongoClient.connect('mongodb://teige:Berkeley1@ds121898.mlab.com:21898/internalassessment2018', (err,
+MongoClient.connect('mongodb://teige:Berkeley1@ds133136.mlab.com:33136/computerscience', (err,
   database) => {
   if(err) return console.log(err)
   db = database
@@ -22,17 +22,17 @@ MongoClient.connect('mongodb://teige:Berkeley1@ds121898.mlab.com:21898/internala
 })
 
 app.get('/', (req, res) => {
-  var cursor = db.collection('recievedMessages').find()
-  db.collection('recievedMessages').find().toArray(function(err,
+  var cursor = db.collection('receivedMessages').find()
+  db.collection('receivedMessages').find().toArray(function(err,
   result) {
     if (err) return console.log(err)
-    res.render('index.ejs', {receiverNumber: result})
+    res.render('index.ejs', {postMessages: result})
 
 })
 })
 
-app.post('/quotes', (req, res) => {
-  db.collection('recievedMessages').save(req.body, (err, result) => {
+app.post('/postMessages', (req, res) => {
+  db.collection('receivedMessages').save(req.body, (err, result) => {
     if (err) return console.log(err);
 
     console.log('saved to database');
