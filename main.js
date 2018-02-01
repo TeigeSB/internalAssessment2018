@@ -3,7 +3,7 @@ const authToken = 'a70ee2f50a025618ca2b7abd11622402';
 const client = require('twilio')(acctSid, authToken);
 
 var whatSend;
-var mediaSend
+var mediaSend;
 
 client.messages
   .create({
