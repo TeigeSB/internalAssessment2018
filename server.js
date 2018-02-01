@@ -26,7 +26,7 @@ app.get('/', (req, res) => {
   db.collection('recievedMessages').find().toArray(function(err,
   result) {
     if (err) return console.log(err)
-    res.render('index.ejs', {quotes: result})
+    res.render('index.ejs', {receiverNumber: result})
 
 })
 })
