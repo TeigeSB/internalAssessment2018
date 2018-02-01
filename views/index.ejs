@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<htmle lang ="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Wow ok then</title>
+  </head>
+  <body>
+    May Kostya someday figure out how to read
+
+    <ul class="quotes">
+  <% for(var i = 0; i < quotes.length; i++) {%>
+    <li class="quotes">
+      <span><%= quotes[i].name %></span>
+      <span><%= quotes[i].quote %></span>
+    </li>
+  <% } %>
+</ul>
+
+</body>
+<form action="/quotes" method="POST">
+  <input type="text" placeholder="name" name="name">
+  <input type ="text" placeholder ="quote" name="quote">
+  <button type="submit">Submit</button>
+</form>
+</html>
