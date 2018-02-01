@@ -1,25 +1,24 @@
 <!DOCTYPE html>
-<htmle lang ="en">
-  <head>
+<html lang="en">
+<head>
+  <script type="text/javascript"
+  src="//media.twiliocdn.com/sdk/js/client/v1.4/twilio.min.js"></script>
+  <script src="main.js"></script>
+
     <meta charset="UTF-8">
-    <title>Wow ok then</title>
-  </head>
-  <body>
-    May Kostya someday figure out how to read
-
-    <ul class="quotes">
-  <% for(var i = 0; i < quotes.length; i++) {%>
-    <li class="quotes">
-      <span><%= quotes[i].name %></span>
-      <span><%= quotes[i].quote %></span>
-    </li>
-  <% } %>
-</ul>
-
+    <title>What it Do</title>
+</head>
+<body>
+<!-- my node serer is at localhost:30303 -->
+  <form action="localhost:30303/server.js" method="POST" id="usrForm">
+    To:<br>
+    <input type="text" name="receiverNumber">
+    <input type="submit" name="Submit"><br>
+    Number of messages:<br>
+    <input type="text" name="repeatTime"><br>
+  </form>
+  <br>
+<textarea rows="4" cols="50" name="comment" form="usrForm">
+Enter message here...</textarea>
 </body>
-<form action="/quotes" method="POST">
-  <input type="text" placeholder="name" name="name">
-  <input type ="text" placeholder ="quote" name="quote">
-  <button type="submit">Submit</button>
-</form>
 </html>
