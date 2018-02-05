@@ -4,13 +4,13 @@
   <script type="text/javascript"
   src="//media.twiliocdn.com/sdk/js/client/v1.4/twilio.min.js"></script>
   <script src="main.js"></script>
-  <link rel="looks" href="//code.jquery.com/mobile/1.5.0-alpha.1/jquery.mobile-1.5.0-alpha.1.min.css" />
-    <script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src="//code.jquery.com/mobile/1.5.0-alpha.1/jquery.mobile-1.5.0-alpha.1.min.js"></script>
-    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+  <script src="server.js"></script>
+  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+  <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
     <title>What it Do</title>
 </head>
-<body
+<body>
 <div data-role="page" id="page1">
     <div data-role="header">
       <h1>Page 1</h1>
@@ -24,29 +24,15 @@
       <h1>Page 2</h1>
     </div>
     <div role="main" class="ui-content">
-      <div role="textbox" id="receiverNumber" class="ui-btn ui-corner-all ui-btn-inline">
+      <div role="textbox" id="receiverNumber1" class="ui-btn ui-corner-all ui-btn-inline">
         <label ="clear-demo">To:</label>
-        <input type="text" name="clear" id="receiverNumber1" value="" placeholder="Number of reveiver" data-clear-btn="true">
+        <input type="text" name="clear" id="receiverNumber" value="" placeholder="Number of reveiver" data-clear-btn="true">
       </div>
       <label for="textarea-a">Message to Send:</label>
-<textarea name="textarea" id="textarea-a" placeholder="Send your message here..."></textarea>
+      <textarea name="textarea" id="whatSend" placeholder="Send your message here..."></textarea>
+      <button name="runThat" id="sending" onclick="sendMessage">Send Your Message!</button>
       <a href="#page1" data-rel="back" data-transition="slide" class="ui-btn ui-corner-all ui-btn-inline">Go Back To Page 1</a>
     </div>
   </div>
-<!-- my node serer is at localhost:30303 -->
-<form action="localhost:3000/postMessages" method="POST" id="usrForm">
-  To:
-  <br>
-  <input type="text" name="receiverNumber">
-  <input type="submit" name="Submit">
-  <br>
-  Number of messages:
-  <br>
-  <input type="text" name="repeatTime">
-  <br>
-</form>
-<br>
-<textarea rows="4" cols="50" name="messageSend" form="usrForm" placeholder="Enter your message here">
-</textarea>
 </body>
 </html>

@@ -6,11 +6,13 @@ var whatSend = document.getElementById("messageSend").value;
 var mediaSend;
 var receiverNumber = document.getElementById("receiverNumber").value;
 
+function sendMessage() {
 client.messages
   .create({
-    body: whatSend,
+    body: '+1'whatSend,
     to: receiverNumber,
     from: "+18316099815"
     mediaUrl: mediaSend
   })
   .then(message => process.stdout.write(message.sid));
+}
