@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script type="text/javascript"
-  src="//media.twiliocdn.com/sdk/js/client/v1.4/twilio.min.js"></script>
-  <script src="main.js"></script>
-  <script src="server.js"></script>
+  <meta charset="UTF-8">
   <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
   <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
   <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-    <title>What it Do</title>
+  <script src="file:///Users/h205p2/Desktop/internalAssessment/main.js"></script>
+  <script src="server.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
 </head>
 <body>
 <div data-role="page" id="page1">
@@ -30,7 +29,7 @@
       </div>
       <label for="textarea-a">Message to Send:</label>
       <textarea name="textarea" id="whatSend" placeholder="Send your message here..."></textarea>
-      <button name="runThat" id="sending" onclick="sendMessage">Send Your Message!</button>
+      <button name="runThat" id="sending" onclick="sendMessage(), checkEmpty()">Send Your Message!</button>
       <a href="#page1" data-rel="back" data-transition="slide" class="ui-btn ui-corner-all ui-btn-inline">Go Back To Page 1</a>
     </div>
   </div>
