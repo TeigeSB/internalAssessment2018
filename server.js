@@ -32,9 +32,10 @@ app.get('/', (req, res) => {
 })
 
 app.post('/postMessages', (req, res) => {
+console.log("posting");
   db.collection('receivedMessages').save(req.body, (err, result) => {
     if (err) return console.log(err);
-
+    //sendMessage(req.formFieldOfMessage, req.formFieldOfRecipient);
     console.log('saved to database');
     res.redirect('/');
 

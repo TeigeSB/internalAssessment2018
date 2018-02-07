@@ -5,8 +5,6 @@
   <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
   <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
   <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-  <script src="file:///Users/h205p2/Desktop/internalAssessment/main.js"></script>
-  <script src="server.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
 </head>
 <body>
@@ -22,6 +20,9 @@
     <div data-role="header">
       <h1>Page 2</h1>
     </div>
+
+<form action="/postMessages" method="POST">
+
     <div role="main" class="ui-content">
       <div role="textbox" id="receiverNumber1" class="ui-btn ui-corner-all ui-btn-inline">
         <label ="clear-demo">To:</label>
@@ -29,9 +30,10 @@
       </div>
       <label for="textarea-a">Message to Send:</label>
       <textarea name="textarea" id="whatSend" placeholder="Send your message here..."></textarea>
-      <button name="runThat" id="sending" onclick="sendMessage(), checkEmpty()">Send Your Message!</button>
+      <input type="submit" name="runThat" id="sending" value="Send Your Message!"/>
       <a href="#page1" data-rel="back" data-transition="slide" class="ui-btn ui-corner-all ui-btn-inline">Go Back To Page 1</a>
     </div>
+  </form>
   </div>
 </body>
 </html>
