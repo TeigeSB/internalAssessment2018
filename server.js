@@ -4,15 +4,37 @@ const express = require('express');
 const bodyParser = require('body-parser')
 const app = express();
 const MongoClient = require('mongodb').MongoClient
+const acctSid = 'ACa06b90b0b052386d0493842a41023491';
+const authToken = 'a70ee2f50a025618ca2b7abd11622402';
+var twilio = require('twilio');
+var client = new twilio(acctSid, authToken);
 
 app.use(bodyParser.urlencoded({extended: true}))
 app.set('view engine', 'ejs')
 
+function sendMessage(messageBody,recipient) {
 
+  client.messages
+    .create({
+      body: messageBody,
+      to: "1"+recipient,
+      from: "+18316099815"
+    })
+  .then(message => process.stdout.write(message.sid));
+}
+
+function checkEmpty(number, message) {
+  if (number == null) {
+    console.log("Please put a number you want to send the message to!")
+  } else if (message == null) {
+    console.log("Please put a message to send!")
+  }
+
+}
 
 var db
 
-MongoClient.connect('mongodb://teige:Berkeley1@ds133136.mlab.com:33136/computerscience', (err,
+MongoClient.connect('mongodb://teige:Berkeley1@ds121898.mlab.com:21898/internalassessment2018', (err,
   database) => {
   if(err) return console.log(err)
   db = database
@@ -32,10 +54,11 @@ app.get('/', (req, res) => {
 })
 
 app.post('/postMessages', (req, res) => {
-console.log("posting");
+console.log(req.body);
+checkEmpty(req.whatSend, req.receiverNumber1);
   db.collection('receivedMessages').save(req.body, (err, result) => {
     if (err) return console.log(err);
-    //sendMessage(req.formFieldOfMessage, req.formFieldOfRecipient);
+    sendMessage(req.whatSend, req.receiverNumber1);
     console.log('saved to database');
     res.redirect('/');
 
