@@ -13,7 +13,8 @@
       <h1>Page 1</h1>
     </div>
     <div role="main" class="ui-content">
-      <a href="#page2" data-transition="slide" class="ui-btn ui-corner-all ui-btn-inline">Go To Page 2</a>
+      <a href="#page2" data-transition="slide" class="ui-btn ui-corner-all ui-btn-inline">New Contact</a>
+      <a href="#page2" data-transition="slide" class="ui-btn ui-corner-all ui-btn-inline">Contacts</a>
     </div>
   </div>
   <div data-role="page" id="page2">
@@ -21,24 +22,27 @@
         <h1>Page 2</h1>
       </div>
         <ul data-role="listview" data-autodividers="true" data-filter="true" data-inset="true">
-          <li><a href="index.ejs">Adam Kinkaid</a></li>
-          <li><a href="index.ejs">Alex Wickerham</a></li>
-          <li><a href="index.ejs">Avery Johnson</a></li>
-          <li><a href="index.ejs">Bob Cabot</a></li>
-          <li><a href="index.ejs">Caleb Booth</a></li>
-          <li><a href="index.ejs">Christopher Adams</a></li>
-          <li><a href="index.ejs">Culver James</a></li>
+          <li><a href="#page3">Adam Kinkaid</a></li>
+          <li><a href="#page3">Alex Wickerham</a></li>
+          <li><a href="#page3">Avery Johnson</a></li>
+          <li><a href="#page3">Bob Cabot</a></li>
+          <li><a href="#page3">Caleb Booth</a></li>
+          <li><a href="#page3">Christopher Adams</a></li>
+          <li><a href="#page3">Culver James</a></li>
         </ul>
       <div role="main" class="ui-content">
-        <a href="#page3" data-transition="slide" class="ui-btn ui-corner-all ui-btn-inline">Go To Page 3</a>
+        <a href="#page1" data-transition="slide" class="ui-btn ui-corner-all ui-btn-inline">Back to Main</a>
       </div>
     </div>
-
   <div data-role="page" id="page3">
     <div data-role="header">
       <h1>Page 3</h1>
     </div>
+    <a href="#page4" data-transition="slide" class="ui-btn ui-corner-all ui-btn-inline">Send a Message!</a>
+    <a href="#page2" date-rel="reverse" data-transition="slide" class="ui-btn ui-corner-all ui-btn-inline">Back to Contacts</a>
+  </div>
 
+  <div data-role="page" id="page4">
 <form action="/postMessages" method="POST">
 
     <div role="main" class="ui-content">
@@ -48,9 +52,9 @@
       </div>
       <label for="textarea-a">Message to Send:</label>
         <textarea name="textarea" id="whatSend" placeholder="Send your message here..."></textarea>
-        <input type="submit" name="runThat" id="sending" value="Send Your Message!"/>
         </form>
-      <a href="#page1" data-rel="back" data-transition="slide" class="ui-btn ui-corner-all ui-btn-inline">Go Back To Page 1</a>
+        <input type="submit" name="runThat" id="sending" value="Gettin' Sendyyy"/>
+      <a href="#page3" data-rel="back" data-transition="slide" class="ui-btn ui-corner-all ui-btn-inline">Go Back To Page 1</a>
     </div>
   </div>
 </body>
