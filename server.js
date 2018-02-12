@@ -4,8 +4,8 @@ const express = require('express');
 const bodyParser = require('body-parser')
 const app = express();
 const MongoClient = require('mongodb').MongoClient
-const acctSid = 'ACa06b90b0b052386d0493842a41023491';
-const authToken = 'a70ee2f50a025618ca2b7abd11622402';
+var acctSid = 'ACa06b90b0b052386d0493842a41023491';
+var authToken = 'a70ee2f50a025618ca2b7abd11622402';
 var twilio = require('twilio');
 var client = new twilio(acctSid, authToken);
 
@@ -14,13 +14,12 @@ app.set('view engine', 'ejs')
 
 function sendMessage(messageBody,recipient) {
 
-  client.messages
-    .create({
+  client.messages.create({
       body: messageBody,
       to: "1"+recipient,
       from: "+18316099815"
     })
-  .then(message => process.stdout.write(message.sid));
+  .then((message => console.log(message.sid)));
 }
 
 function checkEmpty(number, message) {
@@ -54,11 +53,12 @@ app.get('/', (req, res) => {
 })
 
 app.post('/postMessages', (req, res) => {
-console.log(req.body);
-checkEmpty(req.whatSend, req.receiverNumber1);
+  console.log(req.body.clear);
+  console.log(req.body.textarea);
+checkEmpty(req.whatSend, req.receiverNumber);
   db.collection('receivedMessages').save(req.body, (err, result) => {
     if (err) return console.log(err);
-    sendMessage(req.whatSend, req.receiverNumber1);
+    sendMessage(req.body.textarea, req.body.clear);
     console.log('saved to database');
     res.redirect('/');
 
