@@ -1,61 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
   <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
   <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 </head>
+
 <body>
-<div data-role="page" id="page1">
+  <div data-role="page" id="page1">
     <div data-role="header">
-      <h1>Page 1</h1>
+      <h1>Main</h1>
     </div>
-    <div role="main" class="ui-content">
+    <div role="main" class="ui-content" style="display:flex;justify-content:center;align-items:center;">
       <a href="#page2" data-transition="slide" class="ui-btn ui-corner-all ui-btn-inline">New Contact</a>
       <a href="#page2" data-transition="slide" class="ui-btn ui-corner-all ui-btn-inline">Contacts</a>
     </div>
   </div>
   <div data-role="page" id="page2">
-      <div data-role="header">
-        <h1>Page 2</h1>
-      </div>
-        <ul data-role="listview" data-autodividers="true" data-filter="true" data-inset="true">
-          <li><a href="#page3">Adam Kinkaid</a></li>
-          <li><a href="#page3">Alex Wickerham</a></li>
-          <li><a href="#page3">Avery Johnson</a></li>
-          <li><a href="#page3">Bob Cabot</a></li>
-          <li><a href="#page3">Caleb Booth</a></li>
-          <li><a href="#page3">Christopher Adams</a></li>
-          <li><a href="#page3">Culver James</a></li>
-        </ul>
-      <div role="main" class="ui-content">
-        <a href="#page1" data-transition="slide" class="ui-btn ui-corner-all ui-btn-inline">Back to Main</a>
-      </div>
+    <div data-role="header">
+      <h1>Contacts</h1>
     </div>
+    <ul data-role="listview" data-autodividers="true" data-filter="true" data-inset="true">
+
+      <li><a href="#page3" data-transition="slide ">Adam Kinkaid</a></li>
+    </ul>
+    <div role="main" class="ui-content">
+      <a href="#page1" data-transition="slide" class="ui-btn ui-corner-all ui-btn-inline">Back to Main</a>
+    </div>
+  </div>
   <div data-role="page" id="page3">
     <div data-role="header">
       <h1>Page 3</h1>
     </div>
+    <div style="display:flex;justify-content:center;align-items:center;">
     <a href="#page4" data-transition="slide" class="ui-btn ui-corner-all ui-btn-inline">Send a Message!</a>
     <a href="#page2" date-rel="reverse" data-transition="slide" class="ui-btn ui-corner-all ui-btn-inline">Back to Contacts</a>
   </div>
+</div>
 
   <div data-role="page" id="page4">
-<form action="/postMessages" method="POST">
-
-    <div role="main" class="ui-content">
-      <div role="textbox" id="receiverNumber1" class="ui-btn ui-corner-all ui-btn-inline">
-        <label ="clear-demo">To:</label>
-        <input type="text" name="clear" id="receiverNumber" value="" placeholder="Number of reveiver" data-clear-btn="true">
-      </div>
-      <label for="textarea-a">Message to Send:</label>
+    <div data-role="header">
+      <h1>Send a Message</h1>
+    </div>
+    <form action="/postMessages" method="POST">
+      <div role="main" class="ui-content">
+        <div role="textbox" id="receiverNumber1">
+          <label="clear-demo">To:</label>
+            <input type="text" name="clear" id="receiverNumber" value="" placeholder="Number of receiver" data-clear-btn="true">
+        </div>
+        <label for="textarea-a">Message to Send:</label>
         <textarea name="textarea" id="whatSend" placeholder="Send your message here..."></textarea>
-        </form>
-        <input type="submit" name="runThat" id="sending" value="Gettin' Sendyyy"/>
-      <a href="#page3" data-rel="back" data-transition="slide" class="ui-btn ui-corner-all ui-btn-inline">Go Back To Page 1</a>
+    </form>
+    <input type="submit" name="runThat" id="sending" value="Gettin' Sendyyy" />
+    <a href="#page3" data-rel="back" data-transition="slide" class="ui-btn ui-corner-all ui-btn-inline">Go Back to Contact Info</a>
     </div>
   </div>
 </body>
+
 </html>
