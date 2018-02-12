@@ -6,8 +6,8 @@ var whatSend = document.getElementById("messageSend").value;
 var mediaSend;
 var receiverNumber = document.getElementById("receiverNumber").value;
 
-function sendMessage() {
-  
+function sendMessage(mesasgeBody,recipient) {
+
   client.messages
     .create({
       body: '+1'whatSend,
