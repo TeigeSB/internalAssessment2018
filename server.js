@@ -53,12 +53,20 @@ app.get('/', (req, res) => {
 })
 
 app.post('/postMessages', (req, res) => {
-  console.log(req.body.clear);
-  console.log(req.body.textarea);
-checkEmpty(req.whatSend, req.receiverNumber);
+  console.log(req.body);
   db.collection('receivedMessages').save(req.body, (err, result) => {
     if (err) return console.log(err);
     sendMessage(req.body.textarea, req.body.clear);
+    console.log('saved to database');
+    res.redirect('/');
+
+  })
+})
+
+app.post('/makeContact', (req, res) => {
+  console.log(req.body);
+  db.collection('contactList').save(req.body, (err, result) => {
+    if (err) return console.log(err);
     console.log('saved to database');
     res.redirect('/');
 
