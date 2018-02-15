@@ -6,6 +6,7 @@
   <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
   <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+
 </head>
 <body>
   <div data-role="page" id="page1">
@@ -22,7 +23,14 @@
       <h1>Contacts</h1>
     </div>
     <ul data-role="listview" data-autodividers="true" data-filter="true" data-inset="true">
-      <li><a href="#page3" data-transition="slide">Adam Kinkaid</a></li>
+        <li><a href="#page3" data-transition="slide">
+  <% for(var i = 0; i < contactList.length; i++) {%>
+    <li class="contactList">
+      <span><%= contactList[i].nameFirst %></span>
+      <span><%= contactList[i].nameLast %></span>
+    </li>
+  <% } %>
+</a></li>
     </ul>
     <div role="main" class="ui-content">
       <a href="#page1" data-transition="slide" class="ui-btn ui-corner-all ui-btn-inline">Back to Main</a>

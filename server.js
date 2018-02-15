@@ -43,11 +43,12 @@ MongoClient.connect('mongodb://teige:Berkeley1@ds121898.mlab.com:21898/internala
 })
 
 app.get('/', (req, res) => {
-  var cursor = db.collection('receivedMessages').find()
-  db.collection('receivedMessages').find().toArray(function(err,
+  var cursor = db.collection('contactList').find()
+  db.collection('contactList').find().toArray(function(err,
   result) {
     if (err) return console.log(err)
-    res.render('index.ejs', {postMessages: result})
+    console.log(result);
+    res.render('index.ejs', {contactList: result})
 
 })
 })
