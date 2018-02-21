@@ -42,27 +42,23 @@ MongoClient.connect('mongodb://teige:Berkeley1@ds121898.mlab.com:21898/internala
   })
 })
 
-app.get('/', (req, res) => {
-  var cursor = db.collection('contactList').find()
-  db.collection('contactList').find().toArray(function(err,
+function loadCollection(collection) {
+  var collection = db.collection('contactList').find()
+  collection.toArray(function(err,
   result) {
     if (err) return console.log(err)
     console.log(result);
-    res.render('index.ejs', {contactList: result})
+    return result;
 
 })
-})
-
-var inMessage;
+}
 
 app.get('/', (req, res) => {
-  var cursors = db.collection('inMessage').find()
-  db.collection('inMessage').find().toArray(function(err,
-  result) {
-    if (err) return console.log(err)
-    res.render('index.ejs', {inMessage: result})
+  var contactList = loadCollection('contactList')
+  var inMessage = loadCollection('inMessage')
 
-})
+  res.render('index.ejs', {contactList, inMessage})
+
 })
 
 app.post('/postMessages', (req, res) => {
