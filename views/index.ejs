@@ -32,6 +32,16 @@
             <% } %>
     </a></li>
     </ul>
+    <ul data-role="listview" data-autodividers="true" data-filter="true" data-inset="true">
+        <li><a href="#page3" data-transition="slide">
+            <% for(var i = 0; i < inMessage.length; i++) {%>
+              <li class="inMessage">
+                <span><%= inMessage[i].clear %></span>
+                <span><%= inMessage[i].textarea %></span>
+        </li>
+            <% } %>
+    </a></li>
+    </ul>
     <div role="main" class="ui-content">
       <a href="#page1" data-transition="slide" class="ui-btn ui-corner-all ui-btn-inline">Back to Main</a>
     </div>

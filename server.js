@@ -53,22 +53,21 @@ app.get('/', (req, res) => {
 })
 })
 
-var receivedMessages;
+var inMessage;
 
 app.get('/', (req, res) => {
-  var cursors = db.collection('receivedMessages').find()
-  db.collection('receivedMessages').find().toArray(function(err,
+  var cursors = db.collection('inMessage').find()
+  db.collection('inMessage').find().toArray(function(err,
   result) {
     if (err) return console.log(err)
-    console.log(result);
-    res.render('index.ejs', {receivedMessages: result})
+    res.render('index.ejs', {inMessage: result})
 
 })
 })
 
 app.post('/postMessages', (req, res) => {
   console.log(req.body);
-  db.collection('receivedMessages').save(req.body, (err, result) => {
+  db.collection('inMessage').save(req.body, (err, result) => {
     if (err) return console.log(err);
     sendMessage(req.body.textarea, req.body.clear);
     console.log('saved to database');
