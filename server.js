@@ -54,12 +54,12 @@ function loadCollection(collection) {
 }
 
 app.get('/', (req, res) => {
-  var contactLists = loadCollection('contactList')
-  var inMessages = loadCollection('inMessage')
+  var cL = loadCollection('contactList')
+  var iM = loadCollection('inMessage')
   console.log(inMessages)
   console.log(contactLists)
 
-  res.render('index.ejs', {contactList: contactLists, inMessage: inMessages})
+  res.render('index.ejs', {cL: contactLists, iM: inMessages})
 
 })
 
