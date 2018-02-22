@@ -43,8 +43,8 @@ MongoClient.connect('mongodb://teige:Berkeley1@ds121898.mlab.com:21898/internala
 })
 
 function loadCollection(collection) {
-  var collection = db.collection('contactList').find()
-  collection.toArray(function(err,
+  var collections = db.collection(collection).find()
+  collections.toArray(function(err,
   result) {
     if (err) return console.log(err)
     console.log(result);
@@ -54,10 +54,12 @@ function loadCollection(collection) {
 }
 
 app.get('/', (req, res) => {
-  var contactList = loadCollection('contactList')
-  var inMessage = loadCollection('inMessage')
+  var contactLists = loadCollection('contactList')
+  var inMessages = loadCollection('inMessage')
+  console.log(inMessages)
+  console.log(contactLists)
 
-  res.render('index.ejs', {contactList, inMessage})
+  res.render('index.ejs', {contactList: contactLists, inMessage: inMessages})
 
 })
 
