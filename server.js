@@ -43,8 +43,9 @@ MongoClient.connect('mongodb://teige:Berkeley1@ds121898.mlab.com:21898/internala
 })
 
 function loadCollection(collection) {
-  var collections = db.collection(collection).find()
-  collections.toArray(function(err,
+  var cursor = db.collection(collection).find()
+  var result = null;
+  cursor.toArray(function(err,
   result) {
     if (err) return console.log(err)
     console.log(result);
@@ -54,10 +55,26 @@ function loadCollection(collection) {
 }
 
 app.get('/', (req, res) => {
+<<<<<<< HEAD
   var cL = loadCollection('contactList')
   var iM = loadCollection('inMessage')
   console.log(inMessages)
+=======
+  var contactLists, inMessages
+  async function timing() {
+    try {
+      var promises = [loadCollection('contactList'), loadCollection('inMessage')];
+      var arr = Promise.all(promises);
+      arr[0] = contactLists
+      arr[1] = inMessages
+    } catch(error) {
+      console.log("Something went wrong")
+    }
+
+  }
+>>>>>>> ace2012daf13a70968bc9c8602d465117ff2ca2a
   console.log(contactLists)
+  console.log(contactLists.length)
 
   res.render('index.ejs', {cL: contactLists, iM: inMessages})
 
