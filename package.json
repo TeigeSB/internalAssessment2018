@@ -23,9 +23,11 @@
     "ejs": "^2.5.7",
     "express": "^4.16.2",
     "mongodb": "^2.2.34",
+    "twilio": "^3.11.3",
     "update-mongo": "0.0.4"
   },
   "devDependencies": {
+    "eslint": "^4.18.1",
     "nodemon": "^1.14.11"
   }
 }

@@ -24,20 +24,20 @@
     </div>
     <ul data-role="listview" data-autodividers="true" data-filter="true" data-inset="true">
         <li><a href="#page3" data-transition="slide">
-            <% for(var i = 0; i < contactList.length; i++) {%>
+            <% for(var i = 0; i < contactLists.length; i++) {%>
               <li class="contactList">
-                <span><%= contactList[i].nameFirst %></span>
-                <span><%= contactList[i].nameLast %></span>
+                <span><%= contactLists[i].nameFirst %></span>
+                <span><%= contactLists[i].nameLast %></span>
         </li>
             <% } %>
     </a></li>
     </ul>
     <ul data-role="listview" data-autodividers="true" data-filter="true" data-inset="true">
         <li><a href="#page3" data-transition="slide">
-            <% for(var j = 0; j < inMessage.length; j++) {%>
+            <% for(var j = 0; j < inMessages.length; j++) {%>
               <li class="inMessage">
-                <span><%= inMessage[j].clear %></span>
-                <span><%= inMessage[j].textarea %></span>
+                <span><%= inMessages[j].clear %></span>
+                <span><%= inMessages[j].textarea %></span>
         </li>
             <% } %>
     </a></li>
