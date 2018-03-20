@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+  <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+</head>
+<body>
+  <div data-role="page" id="page1">
+    <div data-role="header">
+      <h1>Main</h1>
+    </div>
+    <div role="main" class="ui-content" style="display:flex;justify-content:center;align-items:center;">
+      <a href="#page5" data-transition="slide" class="ui-btn ui-corner-all ui-btn-inline">New Contact</a>
+      <a href="#page2" data-transition="slide" class="ui-btn ui-corner-all ui-btn-inline">Contacts</a>
+    </div>
+  </div>
+  <div data-role="page" id="page2">
+    <div data-role="header">
+      <h1>Contacts</h1>
+    </div>
+    <ul data-role="listview" data-autodividers="true" data-filter="true" data-inset="true">
+        <li><a href="#page3" data-transition="slide">
+            <% for(var i = 0; i < contactLists.length; i++) {%>
+              <li class="contactList">
+                <span><%= contactLists[i].nameFirst %></span>
+                <span><%= contactLists[i].nameLast %></span>
+        </li>
+            <% } %>
+    </a></li>
+    <div role="main" class="ui-content">
+      <a href="#page1" data-transition="slide" class="ui-btn ui-corner-all ui-btn-inline">Back to Main</a>
+    </div>
+  </div>
+  <div data-role="page" id="page3">
+    <div data-role="header">
+      <h1>Contact Info</h1>
+    </div>
+    <div style="display:flex;justify-content:center;align-items:center;">
+    <a href="#page4" data-transition="slide" class="ui-btn ui-corner-all ui-btn-inline">Send a Message!</a>
+    <a href="#page2" date-rel="reverse" data-transition="slide" class="ui-btn ui-corner-all ui-btn-inline">Back to Contacts</a>
+  </div>
+</div>
+  <div data-role="page" id="page4">
+    <div data-role="header">
+      <h1>Send a Message</h1>
+    </div>
+    <form action="/postMessages" method="POST">
+      <div role="main" class="ui-content">
+        <div role="textbox" id="receiverNumber1">
+          <label="clear-demo">To:</label>
+            <input type="text" name="clear" id="receiverNumber" value="" placeholder="Number of receiver" data-clear-btn="true">
+        </div>
+        <label for="textarea-a">Message to Send:</label>
+        <textarea name="textarea" id="whatSend" placeholder="Send your message here..."></textarea>
+    </form>
+    <input type="submit" name="runThat" id="sending" value="Gettin' Sendyyy" />
+    <a href="#page3" data-rel="back" data-transition="slide" class="ui-btn ui-corner-all ui-btn-inline">Go Back to Contact Info</a>
+    </div>
+    </ul>
+    <ul data-role="listview" data-autodividers="true" data-filter="true" data-inset="true">
+        <li><a href="#page3" data-transition="slide">
+            <% for(var j = 0; j < inMessages.length; j++) {%>
+              <li class="inMessage">
+                <span><%= inMessages[j].clear %></span>
+                <span><%= inMessages[j].textarea %></span>
+        </li>
+            <% } %>
+    </a></li>
+    </ul>
+  </div>
+  <div data-role="page" id="page5">
+    <div data-role="header">
+      <h1>Create your new Contact!!!!!!</h1>
+    </div>
+    <form action="/makeContact" method="POST">
+      <div role="main" class="ui-content">
+        <label for="basic">First Name:</label>
+        <input type="text" name="nameFirst" id="basic" value="">
+        <label for="basic">Last Name:</label>
+        <input type="text" name="nameLast" id="basic" value="">
+        <label for="basic">Number:</label>
+        <input type="text" name="contactNumber" id="number" value="">
+    </form>
+      <input href="#page1" type="submit" name="makeContact" id="yuh" value="Yuh Gang Make the Contact."/>
+      <a href="#page1" data-rel="back" data-transition="slide" class="ui-btn ui-corner-all ui-btn-inline">Back to Main</a>
+  </div>
+  </div>
+</body>
+
+</html>
