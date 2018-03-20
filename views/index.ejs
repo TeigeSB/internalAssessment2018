@@ -5,6 +5,7 @@
   <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
   <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
   <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+  <script src="jquery-3.3.1.min.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
 </head>
@@ -22,12 +23,11 @@
     <div data-role="header">
       <h1>Contacts</h1>
     </div>
-    <ul data-role="listview" data-autodividers="true" data-filter="true" data-inset="true">
+    <ul data-role="listview" id="wowok" data-autodividers="true" data-filter="true" data-inset="true">
         <li><a href="#page3" data-transition="slide">
             <% for(var i = 0; i < contactLists.length; i++) {%>
               <li class="contactList">
-                <span><%= contactLists[i].nameFirst %></span>
-                <span><%= contactLists[i].nameLast %></span>
+                <% var buttons = $('<a href="#page3" data-transition="slide"' + contactLists[i] + '</a>') %>
         </li>
             <% } %>
     </a></li>

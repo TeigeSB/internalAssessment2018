@@ -3,12 +3,10 @@ console.log("May Node be with you");
 const express = require("express");
 const bodyParser = require("body-parser");
 const twilio = require("twilio");
-
 const app = express();
 const MongoClient = require("mongodb").MongoClient;
 const acctSid = "ACa06b90b0b052386d0493842a41023491";
 const authToken = "a70ee2f50a025618ca2b7abd11622402";
-
 const client = new twilio(acctSid, authToken);
 
 app.use(bodyParser.urlencoded({ extended: true }));
