@@ -77,3 +77,11 @@ app.post("/makeContact", (req, res) => {
     res.redirect("/");
   });
 });
+
+function okCOOl(){
+  $( "#wowok" ).listview( "refresh" );
+}
+
+window.setInterval(function(){
+  okCOOL
+}, 1000);
