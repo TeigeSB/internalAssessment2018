@@ -8,14 +8,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
 </head>
-<body onload='okCOOL()'>
+<body>
   <div data-role="page" id="page1">
     <div data-role="header">
       <h1>Main</h1>
     </div>
     <div role="main" class="ui-content" style="display:flex;justify-content:center;align-items:center;">
       <a href="#page5" data-transition="slide" class="ui-btn ui-corner-all ui-btn-inline">New Contact</a>
-      <a href="#page2" data-transition="slide" class="ui-btn ui-corner-all ui-btn-inline">Contacts</a>
+      <a href="#page2" data-transition="slide" class="ui-btn ui-corner-all ui-btn-inline" onclick="okCOOl()">Contacts</a>
     </div>
   </div>
   <div data-role="page" id="page2">
@@ -87,7 +87,7 @@
         <label for="basic">Number:</label>
         <input type="text" name="contactNumber" id="number" value="">
     </form>
-      <input href="#page1" type="submit" name="makeContact" id="yuh" value="Yuh Gang Make the Contact."/>
+      <input href="#page1" type="submit" name="makeContact" id="yuh" value="Yuh Gang Make the Contact." onclick="okCOOl()"/>
       <a href="#page1" data-rel="back" data-transition="slide" class="ui-btn ui-corner-all ui-btn-inline">Back to Main</a>
   </div>
   </div>

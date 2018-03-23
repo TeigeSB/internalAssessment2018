@@ -22,6 +22,15 @@ function sendMessage(messageBody, recipient) {
     .then(message => console.log(message.sid));
 }
 
+function okCOOl(){
+  while(true) {
+    db.collection("contactList").update()
+    $( "#wowok" ).listview( "refresh" );
+    console.log("HEY")
+  }
+  return okCOOl()
+}
+
 function checkEmpty(number, message) {
   if (number == null) {
     console.log("Please put a number you want to send the message to!");
@@ -48,7 +57,6 @@ const loadCollection = async collection => {
   return;
 };
 app.get("/", async (req, res) => {
-
   const contactLists = await db.collection("contactList").find({}).toArray();
   const inMessages = await db.collection("inMessage").find({}).toArray();
   console.log(inMessages);
@@ -77,11 +85,3 @@ app.post("/makeContact", (req, res) => {
     res.redirect("/");
   });
 });
-
-function okCOOl(){
-  $( "#wowok" ).listview( "refresh" );
-}
-
-window.setInterval(function(){
-  okCOOL
-}, 1000);
