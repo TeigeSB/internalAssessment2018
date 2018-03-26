@@ -25,8 +25,9 @@
     <ul data-role="listview" id="wowok" data-autodividers="true" data-filter="true" data-inset="true">
         <li>
             <% for(var i = 0; i < contactLists.length; i++) {%>
+              <% var number = contactLists[i].contactNumber %>
               <li class="contactList">
-                <a href="#page3" data-transition="slide">
+                <a href="#page3" data-transition="slide" onclick="number()">
                 <span><%= contactLists[i].nameFirst %></span>
                 <span><%= contactLists[i].nameLast %></span>
                 </a>
@@ -45,6 +46,18 @@
     <a href="#page4" data-transition="slide" class="ui-btn ui-corner-all ui-btn-inline">Send a Message!</a>
     <a href="#page2" date-rel="reverse" data-transition="slide" class="ui-btn ui-corner-all ui-btn-inline">Back to Contacts</a>
   </div>
+  <ul data-role="listview" data-autodividers="true" data-filter="true" data-inset="true">
+      <li>
+          <% for(var j = 0; j < inMessages.length; j++) {%>
+            <li class="inMessage">
+              <% console.log(number + "HEY") %>
+              <% if(inMessages[j].clear = number) { %>
+              <span><%= inMessages[j].textarea %></span>
+            <% } %>
+      </li>
+          <% } %>
+  </li>
+  </ul>
 </div>
   <div data-role="page" id="page4">
     <div data-role="header">
@@ -62,16 +75,6 @@
     <input type="submit" name="runThat" id="sending" value="Gettin' Sendyyy" />
     <a href="#page3" data-rel="back" data-transition="slide" class="ui-btn ui-corner-all ui-btn-inline">Go Back to Contact Info</a>
     </div>
-    </ul>
-    <ul data-role="listview" data-autodividers="true" data-filter="true" data-inset="true">
-        <li><a href="#page3" data-transition="slide">
-            <% for(var j = 0; j < inMessages.length; j++) {%>
-              <li class="inMessage">
-                <span><%= inMessages[j].clear %></span>
-                <span><%= inMessages[j].textarea %></span>
-        </li>
-            <% } %>
-    </a></li>
     </ul>
   </div>
   <div data-role="page" id="page5">
