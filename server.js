@@ -26,17 +26,9 @@ function okCOOl(){
   while(true) {
     db.collection("contactList").update()
     $( "#wowok" ).listview( "refresh" );
-    console.log("HEY")
+    console.log("HEY!")
   }
   return okCOOl()
-}
-
-function checkEmpty(number, message) {
-  if (number == null) {
-    console.log("Please put a number you want to send the message to!");
-  } else if (message == null) {
-    console.log("Please put a message to send!");
-  }
 }
 
 let db;

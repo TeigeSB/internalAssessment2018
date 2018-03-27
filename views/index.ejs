@@ -26,13 +26,19 @@
         <li>
             <% for(var i = 0; i < contactLists.length; i++) {%>
               <% var number = contactLists[i].contactNumber %>
+              <% console.log(number+"HI") %>
               <li class="contactList">
+                <li id=number>
                 <a href="#page3" data-transition="slide" onclick="number()">
                 <span><%= contactLists[i].nameFirst %></span>
                 <span><%= contactLists[i].nameLast %></span>
                 </a>
         </li>
+      </li>
             <% } %>
+            <% $("#wowok").click(function(event) { %>
+            <%  var clickedNumberBumer = event.target.id %>
+            <% }) %>
     </li>
     <div role="main" class="ui-content">
       <a href="#page1" data-transition="slide" class="ui-btn ui-corner-all ui-btn-inline">Back to Main</a>
@@ -51,7 +57,7 @@
           <% for(var j = 0; j < inMessages.length; j++) {%>
             <li class="inMessage">
               <% console.log(number + "HEY") %>
-              <% if(inMessages[j].clear = number) { %>
+              <% if(inMessages[j].clear = clickedNumberBumer) { %>
               <span><%= inMessages[j].textarea %></span>
             <% } %>
       </li>
